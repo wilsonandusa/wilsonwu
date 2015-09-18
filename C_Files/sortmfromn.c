@@ -41,6 +41,7 @@ void perm(int list[], int k, int m)
 }
 
 int main(){
+    int list[] = [1,2,3,4,5];
     perm(list,0,2);
     return 0;
 }
