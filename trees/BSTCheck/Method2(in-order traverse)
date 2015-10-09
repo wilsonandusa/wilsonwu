@@ -1,31 +1,65 @@
-//correct and efficient, using in-order traversal
-// do in-order traversal of the given tree and store the result in a temp array.
-// check if the temp array is sorted in ascending order, if it is, then the tree is BST
-// what a smart move!
-
-// time complexity: O(n)
-
-// if the value of the currently visited node is less than the previous value, return false.
-
-bool isBST(struct node* root)
+template <typename T>
+bool BinaryTree<T>::isOrdered() const
 {
-    static struct node *prev = NULL;
-     
-    // traverse the tree in inorder fashion and keep track of prev node
-    if (root)
-    {
-        if (!isBST(root->left))
-          return false;
- 
-        // Allows only distinct valued nodes 
-        if (prev != NULL && root->data <= prev->data)
-          return false;
- 
-        prev = root;
- 
-        return isBST(root->right);
-    }
- 
-    return true;
+    return isOrdered(root);
+    cout<<endl;
 }
 
+template <typename T>
+bool BinaryTree<T>::isOrdered(const Node*subtree)const
+{	bool inorder = true;
+    if (subtree==NULL)
+    return true;
+
+	if (subtree->left!= NULL)
+	{
+		if (subtree->elem < maxonleft(subtree->left))
+		{
+			inorder = false;
+		}
+	}
+	if (subtree->right!=NULL)
+	{
+		if (subtree->elem > minonright(subtree->right))
+		{
+			inorder = false;
+		}
+	}
+	return (inorder&&isOrdered(subtree->left)&&isOrdered(subtree->right));
+}
+
+template <typename T>
+T BinaryTree<T>::maxonleft(const Node*subtree)const
+{
+	if (subtree->left==NULL&&subtree->right==NULL)
+	return subtree->elem;
+	
+	else if (subtree->left!=NULL&&subtree->right == NULL)
+	{
+		return max(subtree->elem,maxonleft(subtree->left));
+	}
+	else if (subtree->left==NULL&&subtree->right!=NULL)
+	{
+		return max(subtree->elem,maxonleft(subtree->right));
+	}
+	else return max(subtree->elem,max(maxonleft(subtree->left),maxonleft(subtree->right)));
+
+
+}
+template <typename T>
+T BinaryTree<T>::minonright(const Node*subtree)const
+{
+	if (subtree->left==NULL&&subtree->right==NULL)
+	return subtree->elem;
+	
+	else if (subtree->left!=NULL&&subtree->right == NULL)
+	{
+		return min(subtree->elem,minonright(subtree->left));
+	}
+	else if (subtree->left==NULL&&subtree->right!=NULL)
+	{
+		return min(subtree->elem,minonright(subtree->right));
+	}
+	else return min(subtree->elem,min(minonright(subtree->left),minonright(subtree->right)));
+}
+/**
