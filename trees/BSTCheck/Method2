@@ -1,0 +1,31 @@
+//correct and efficient, using in-order traversal
+// do in-order traversal of the given tree and store the result in a temp array.
+// check if the temp array is sorted in ascending order, if it is, then the tree is BST
+// what a smart move!
+
+// time complexity: O(n)
+
+// if the value of the currently visited node is less than the previous value, return false.
+
+bool isBST(struct node* root)
+{
+    static struct node *prev = NULL;
+     
+    // traverse the tree in inorder fashion and keep track of prev node
+    if (root)
+    {
+        if (!isBST(root->left))
+          return false;
+ 
+        // Allows only distinct valued nodes 
+        if (prev != NULL && root->data <= prev->data)
+          return false;
+ 
+        prev = root;
+ 
+        return isBST(root->right);
+    }
+ 
+    return true;
+}
+
