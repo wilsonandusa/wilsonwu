@@ -5,5 +5,5 @@
 
 From the above properties it naturally follows that:
 • Each node (item in the tree) has a distinct key.*/
-
+//
 // most of the contents in this file came from http://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
