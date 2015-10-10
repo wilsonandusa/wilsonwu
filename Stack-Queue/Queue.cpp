@@ -78,11 +78,8 @@ T Queue<T>::peek()
         while(!inStack.isEmpty())
             outStack.push(inStack.pop());
     }
-            T temp= outStack.peek();
-
-        while(!outStack.isEmpty())
-            inStack.push(outStack.pop());
-    return temp;
+        
+    return outStack.peep();
 }
 /**
  * Determines if the Queue is empty.
