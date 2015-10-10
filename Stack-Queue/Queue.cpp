@@ -79,7 +79,7 @@ T Queue<T>::peek()
             outStack.push(inStack.pop());
     }
         
-    return outStack.peep();
+    return outStack.peek();
 }
 /**
  * Determines if the Queue is empty.
