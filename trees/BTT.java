@@ -26,3 +26,16 @@ void postordertraversal(TreeNode node){
     visit(node);
   }
 }
+
+void binaryTree<T>::levelOrder(treeNode * croot){
+    queue<treeNode*> Q;
+    Q.enqueue(croot);
+    while(!Q.isempty()){
+      treeNode*t = Q.dequeue();
+      if(t!=NULL){
+        yell(t->data);
+        Q.enqueue(t->left);
+        Q.enqueue(t->right);
+      }
+    }
+}
