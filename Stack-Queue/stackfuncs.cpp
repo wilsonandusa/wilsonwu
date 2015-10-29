@@ -33,5 +33,6 @@ int main ()
 
   return 0;
 }
+//foo now size of 2 bar 3
 //****************************TOP***********************
 stack::top
