@@ -1,6 +1,5 @@
 # wilsonwu-s-Code
 Codes
-Python game based on pygame lib
 
 Copyright (c) 2015 Xiaosheng Wu. https://github.com/wilsonandusa/wilsonwu-s-Code
 
