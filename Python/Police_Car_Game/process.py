@@ -190,6 +190,10 @@ def collisions():
 			print("Hit!")
 			proj.destroy()
 			
-	
+	for bus in classes.Bus.List:
 
+		if pygame.sprite.spritecollide(bus, classes.copProjectile.List, False): 
+			print("You Lose!")
+			pygame.quit()
+			sys.exit() 
 
