@@ -8,7 +8,10 @@
 ###3. Do not shoot the School Bus (You Lose)
  
 ###4. Three Game Mode by changing the flag variable in the Main.py file. Cars may respawn depending on the mode
+### To play the game, First download the files, then type
 
+'''python main.py'''    to run it
+### please make sure your have python3.1 and pygame 3.1 pre-installed.
 
 ###Copyright (c) 2015 Xiaosheng Wu. https://github.com/wilsonandusa/wilsonwu-s-Code
 
